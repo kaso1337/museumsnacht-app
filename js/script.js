@@ -8,6 +8,31 @@ const background = document.querySelector('.background');
 
 let currentExpandedLayer = null;
 let currentTour = null;
+let backgroundSize = { width: 0, height: 0 };
+
+function positionLayersInsideBackground() {
+    const bgRect = background.getBoundingClientRect();
+    
+    layers.forEach(layer => {
+        layer.style.maxWidth = `${bgRect.width}px`;
+        layer.style.maxHeight = `${bgRect.height}px`;
+    });
+}
+
+background.addEventListener('load', function() {
+    backgroundSize.width = this.naturalWidth;
+    backgroundSize.height = this.naturalHeight;
+    
+    setTimeout(positionLayersInsideBackground, 0);
+});
+
+if (background.complete) {
+    backgroundSize.width = background.naturalWidth;
+    backgroundSize.height = background.naturalHeight;
+    setTimeout(positionLayersInsideBackground, 0);
+}
+
+window.addEventListener('resize', positionLayersInsideBackground);
 
 const tours = {
     '1': [
@@ -55,6 +80,21 @@ layers.forEach(layer => {
 
             const clonedLayer = this.cloneNode();
             clonedLayer.classList.add('expanded');
+            
+            clonedLayer.style.clipPath = 'none';
+            
+            clonedLayer.style.position = 'absolute';
+            clonedLayer.style.top = '50%';
+            clonedLayer.style.left = '50%';
+            clonedLayer.style.transform = 'translate(-50%, -50%)';
+            clonedLayer.style.maxWidth = '100%';
+            clonedLayer.style.maxHeight = '100%';
+            clonedLayer.style.width = 'auto';
+            clonedLayer.style.height = 'auto';
+            clonedLayer.style.objectFit = 'contain';
+            clonedLayer.style.backgroundColor = 'transparent';
+
+            expandedContainer.style.backgroundColor = 'transparent';
 
             const closeButton = document.createElement('div');
             closeButton.className = 'close-button';
