@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bellotto neu interpretiert - Fragile Welten</title>
-    <link rel="stylesheet" href="/assets/fragility_style.css">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/fav/favicon_skd_16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/fav/favicon_skd_32.png">
     <link rel="icon" type="image/png" sizes="48x48" href="/assets/img/fav/favicon_skd_48.png">
@@ -36,9 +35,28 @@
             </span> -->
             <img id="frame_img_src" class="center" src="./assets/img/Kreuzkirche.png" />
         </div>
+        <button data-tooltip="Home" id="home_btn" class="btn btn_tooltip">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="home-icon">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+        </button>
     </div>
 </body>
 <script>
+
+    // Home-Button event handling
+    const homeBtn = document.getElementById('home_btn');
+     if (homeBtn) {
+         homeBtn.addEventListener('click', function() {
+             window.location.href = 'index.html';
+         });
+         homeBtn.addEventListener('touchstart', function() {
+             window.location.href = 'index.html';
+         });
+     }
+
+
 
     // categories: (a)nimals, (e)nergies, (f)lood, (g)lobal warming, (m)obility, (n)ature, (s)pace
     const folder_names = ["Sand", "Glas", "Karten", "Knete", "Papier", "Keramik", "Schnee"];
