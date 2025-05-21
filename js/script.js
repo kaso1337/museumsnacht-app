@@ -75,14 +75,14 @@ const tours = {
     ],
     '2': [
         { title: "Unerschütterlich", description: "Trotz der Tatsache, dass diese Menschenmasse neben einem großen Feuerausbruch steht, scheint sie ziemlich entspannt zu sein...", zoom: { scale: 2.5, x: "-20%", y: "-18%" } },
-        { title: "Geisterturm", description: "Hinter der Kreuzkirche schwebt ein gespenstischer Turm einer mysteriösen anderen Kirche... Was für ein gruseliges Ritual geht hier vor sich? Was denkt ihr?", zoom: { scale: 2, x: "0%", y: "+8%" } }
+        { title: "Geisterturm", description: "Hinter der Kreuzkirche schwebt ein gespenstischer Turm einer mysteriösen anderen Kirche... Was für ein gruseliges Ritual geht hier vor sich? Was denkt ihr?", zoom: { scale: 2.2, x: "-2%", y: "+13%" } }
     ],
     '3': [
         { title: "Seltsames Loch im Gebäude?", description: "Wie ist denn dieses komische Loch im Gebäude entstanden? Es sieht viel zu rund aus um ein Kanoneneinschlag zu sein... Wofür denkt ihr könnte dieses architektonische Merkmal sein?", zoom: { scale: 2.5, x: "-25%", y: "-8%" } },
         { title: "Kugelstoßen im Gefecht", description: "Dieser Soldat scheint mitten in der Schlacht Kugelstoßen zu spielen! Noch seltsamer: Ein Kamerad aus der eigenen Truppe scheint ihn von hinten zu bedrohen… was für eine merkwürdige Kampfstrategie!", zoom: { scale: 3, x: "-30%", y: "-20%" } }
     ],
     '5': [
-        { title: "Ein Gewölbe?", description: "Hier sehen wir die Kreuzkirche mit einem Gewölbe auf ihrem Turm. Die KI verarbeitet das Wort Dresden und fügt sofort in komischen Orten Frauenkirche-ähnliche Gewölbe hinzu....", zoom: { scale: 2, x: "5%", y: "18%" } },
+        { title: "Ein Gewölbe?", description: "Hier sehen wir die Kreuzkirche mit einem Gewölbe auf ihrem Turm. Die KI verarbeitet das Wort Dresden und fügt sofort in komischen Orten Frauenkirche-ähnliche Gewölbe hinzu....", zoom: { scale: 2, x: "0%", y: "18%" } },
         { title: "Gruselige Gestalten...", description: "Was sind diese gruseligen Figuren und was planen sie? Wir wissen es auch nicht...", zoom: { scale: 2.2, x: "-10%", y: "-30%" } }
     ]
 };
