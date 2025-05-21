@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour der Anomalien</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="passepartout-border">
+        <button id="home-button" class="home-button">Home</button>
+    </div>
+    <div id="container">
+        <img src="images/background.jpg" alt="Hintergrund" class="background">
+        <div class="overlay"></div>
+
+        <img src="images/layer1.jpg" alt="Bild 1" class="layer" data-layer="1">
+        <img src="images/layer2.jpg" alt="Bild 2" class="layer" data-layer="2">
+        <img src="images/layer3.jpg" alt="Bild 3" class="layer" data-layer="3">
+        <img src="images/layer4.jpg" alt="Bild 4" class="layer" data-layer="4">
+        <img src="images/layer5.jpg" alt="Bild 5" class="layer" data-layer="5">
+
+        <div class="anomaly-info title-block">
+            <h2>Findet ihr alle Kl-Kuriositäten?</h2>
+            <button id="tour-button">Tour der Anomalien →</button>
+        </div>
+        <div class="anomaly-info info-block">
+            <p>Die Proportionen und Wände der ursprünglich gotischen Hallenkirche wirken hier verzerrt und surreal.</p>
+        </div>
+
+        <div class="tour-info" id="first-tour-info">
+            <h3>Surrealistische Architektur</h3>
+            <p>Die Proportionen und Wände der ursprünglich gotischen Hallenkirche wirken hier verzerrt und surreal. Wie wohl der Grundriss von dieser bizarren Kirche aussehen würde?</p>
+            <button id="next-button">Weiter gehts!</button>
+        </div>
+
+        <div class="tour-info" id="second-tour-info">
+            <h3>Rauchender Turm</h3>
+            <p>Was mag wohl im Turm im Hintergrund passieren? Als wir das Bild generierten, wurde der KI gesagt, dass ein Stadtbrand dargestellt werden soll – aber anscheinend hat sie noch nicht ganz verstanden, wie Rauch entsteht...</p>
+            <button id="to-third-button">Weiter gehts!</button>
+            <button id="back-to-first-button">← Zurück</button>
+        </div>
+
+        <div class="tour-info" id="third-tour-info">
+            <h3>Mystische Kreatur</h3>
+            <p>Was für ein seltsames Tier hier neben den winzigen Pferden entstanden ist, wissen wir auch nicht...<br>Vielleicht ist es eine ausgestorbene Art oder eine Phantasie-Kreatur die es nur im KI-Mittelalter gibt?</p>
+            <button id="back-to-second-button">← Zurück</button>
+            <button id="end-tour-button">Zurück zum Bild</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
