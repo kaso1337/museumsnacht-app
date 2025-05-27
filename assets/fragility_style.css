@@ -244,7 +244,7 @@ button.btn_tooltip:before {
     justify-content: center;
     position: absolute;
     right: 3%;
-    bottom: 3%;
+    bottom: 0;
     z-index: 10;
     width: 14vw;
     height: 14vw;
