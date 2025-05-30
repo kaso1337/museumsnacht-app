@@ -76,7 +76,8 @@ body {
 }
 
 .btn {
-    background-color: #f0f0f0; /* Fallback color */
+    background-color: #f0f0f0;
+    /* Fallback color */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -95,30 +96,37 @@ body {
 
 /* Using inline background colors to indicate which buttons are which */
 #romantik_btn {
-    background-color: #ffe0e0; /* Light red */
+    background-color: #ffe0e0;
+    /* Light red */
 }
 
 #renaissance_btn {
-    background-color: #e0ffe0; /* Light green */
+    background-color: #e0ffe0;
+    /* Light green */
 }
 
 #expressionismus_btn {
-    background-color: #e0e0ff; /* Light blue */
+    background-color: #e0e0ff;
+    /* Light blue */
 }
 
 #impressionismus_btn {
-    background-color: #fffde0; /* Light yellow */
+    background-color: #fffde0;
+    /* Light yellow */
 }
 
 #xieyi_btn {
-    background-color: #ffe0fd; /* Light purple */
+    background-color: #ffe0fd;
+    /* Light purple */
 }
 
 #gongbi_btn {
-    background-color: #e0fffd; /* Light cyan */
+    background-color: #e0fffd;
+    /* Light cyan */
 }
 
-.btn:hover, .btn:active {
+.btn:hover,
+.btn:active {
     transform: scale(1.1, 1.1);
     background-color: #EB4E27;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
@@ -183,7 +191,7 @@ button.btn_tooltip:before {
     justify-content: center;
     position: absolute;
     right: 3%;
-    bottom: 3%;
+    bottom: 0;
     z-index: 10;
     width: 14vw;
     height: 14vw;

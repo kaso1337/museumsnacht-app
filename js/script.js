@@ -8,13 +8,13 @@ const infoBlock = document.querySelector('.info-block');
 const tourButton = document.getElementById('tour-button');
 const container = document.querySelector('#container');
 const background = document.querySelector('.background');
-const homeButton = document.getElementById('home-button');
+const homeButton = document.getElementById('home_btn');
 const firstTourInfo = document.getElementById('first-tour-info');
 const secondTourInfo = document.getElementById('second-tour-info');
 const thirdTourInfo = document.getElementById('third-tour-info');
 
 // Add event listener to home button
-homeButton.addEventListener('click', function() {
+homeButton.addEventListener('click', function () {
     window.location.href = 'index.html';
 });
 
@@ -25,29 +25,29 @@ let currentTour = null;
 function adjustContainerToBackground() {
     // Wait for the image to be fully loaded
     if (!background.complete) return;
-    
+
     // Get the natural dimensions of the background image
     const bgWidth = background.naturalWidth;
     const bgHeight = background.naturalHeight;
-    
+
     // Get viewport dimensions
     const viewportWidth = window.innerWidth - 40; // Subtract padding
     const viewportHeight = window.innerHeight - 40; // Subtract padding
-    
+
     // Calculate appropriate scaling to fit the viewport while maintaining aspect ratio
     let scale = Math.min(viewportWidth / bgWidth, viewportHeight / bgHeight);
-    
+
     // Set container dimensions to exactly match the scaled background image
     const scaledWidth = bgWidth * scale;
     const scaledHeight = bgHeight * scale;
-    
+
     container.style.width = `${scaledWidth}px`;
     container.style.height = `${scaledHeight}px`;
-    
+
     // Make sure the container doesn't overflow the viewport
     container.style.maxWidth = '100%';
     container.style.maxHeight = '100vh';
-    
+
     // Position layers properly inside the container
     layers.forEach(layer => {
         layer.style.maxWidth = '100%';
@@ -96,7 +96,7 @@ thirdTourInfo.style.display = "none";
 
 // Event handler for layer clicks
 layers.forEach(layer => {
-    layer.addEventListener('click', function(e) {
+    layer.addEventListener('click', function (e) {
         if (e.target === this && !this.classList.contains('expanded')) {
             if (currentExpandedLayer) {
                 closeExpanded();
@@ -104,7 +104,7 @@ layers.forEach(layer => {
 
             currentExpandedLayer = this;
             const layerId = this.dataset.layer;
-            
+
             background.classList.add('blurred');
             layers.forEach(l => {
                 if (l !== this) l.classList.add('hidden');
@@ -112,7 +112,7 @@ layers.forEach(layer => {
 
             const expandedContainer = document.createElement('div');
             expandedContainer.className = 'expanded-container';
-            
+
             // Clone the layer and prepare it for expansion
             const clonedLayer = this.cloneNode();
             clonedLayer.classList.add('expanded');
@@ -128,7 +128,7 @@ layers.forEach(layer => {
             clonedLayer.style.objectFit = 'contain';
             clonedLayer.style.backgroundColor = 'transparent';
             clonedLayer.style.borderRadius = '15px';
-            
+
             // Store original dimensions for zooming
             clonedLayer.setAttribute('data-original-width', this.naturalWidth);
             clonedLayer.setAttribute('data-original-height', this.naturalHeight);
@@ -145,23 +145,23 @@ layers.forEach(layer => {
             container.appendChild(expandedContainer);
 
             overlay.classList.add('active');
-            
+
             // Show appropriate UI elements based on layer ID
             if (layerId === '4') {
                 titleBlock.style.display = "none";
                 infoBlock.style.display = "block";
-                
+
                 setTimeout(() => {
                     infoBlock.classList.add('visible');
                 }, 10);
             } else {
                 titleBlock.style.display = "block";
                 infoBlock.style.display = "block";
-                
+
                 setTimeout(() => {
                     titleBlock.classList.add('visible');
                     infoBlock.classList.add('visible');
-                    
+
                     // Show tour button only if tours exist for this layer
                     if (tours[layerId]) {
                         tourButton.style.display = "block";
@@ -213,7 +213,7 @@ function startTourStep() {
         // Preserve original dimensions during zoom
         expandedImage.style.width = 'auto';
         expandedImage.style.height = 'auto';
-        
+
         expandedImage.classList.remove('zooming');
         void expandedImage.offsetWidth; // Force reflow
         expandedImage.classList.add('zooming');
@@ -227,9 +227,9 @@ function startTourStep() {
         firstTourInfo.querySelector('p').textContent = step.description;
 
         const nextButton = document.getElementById('next-button');
-        nextButton.textContent = currentTour.currentStep === tour.length - 1 ? 
+        nextButton.textContent = currentTour.currentStep === tour.length - 1 ?
             "Tour beenden" : "Weiter geht's!";
-        
+
         // Update button click handlers
         if (currentTour.currentStep === tour.length - 1) {
             nextButton.onclick = endTour;
@@ -241,7 +241,7 @@ function startTourStep() {
             firstTourInfo.style.display = "block";
             secondTourInfo.style.display = "none";
             thirdTourInfo.style.display = "none";
-            
+
             setTimeout(() => {
                 firstTourInfo.classList.add('visible');
             }, 10);
@@ -265,7 +265,7 @@ function endTour() {
         expandedImage.style.setProperty('--to-scale', '1');
         expandedImage.style.setProperty('--to-x', '0%');
         expandedImage.style.setProperty('--to-y', '0%');
-        
+
         // Reset width and height
         expandedImage.style.width = 'auto';
         expandedImage.style.height = 'auto';
@@ -279,12 +279,12 @@ function endTour() {
     firstTourInfo.classList.remove('visible');
     secondTourInfo.classList.remove('visible');
     thirdTourInfo.classList.remove('visible');
-    
+
     setTimeout(() => {
         firstTourInfo.style.display = "none";
         secondTourInfo.style.display = "none";
         thirdTourInfo.style.display = "none";
-        
+
         // Show title and info blocks after tour ends
         setTimeout(() => {
             titleBlock.classList.add('visible');
@@ -305,7 +305,7 @@ function closeExpanded() {
         // Hide all information elements
         titleBlock.classList.remove('visible');
         infoBlock.classList.remove('visible');
-        
+
         document.querySelectorAll('.tour-info').forEach(info => {
             info.classList.remove('visible');
         });
@@ -322,11 +322,11 @@ function closeExpanded() {
             // Reset display for all info elements
             titleBlock.style.display = "none";
             infoBlock.style.display = "none";
-            
+
             document.querySelectorAll('.tour-info').forEach(info => {
                 info.style.display = "none";
             });
-            
+
             currentExpandedLayer = null;
             currentTour = null;
         }, 300);
@@ -341,7 +341,7 @@ overlay.addEventListener('click', (e) => {
 });
 
 // Configure additional tour navigation buttons
-document.getElementById('to-third-button').addEventListener('click', function() {
+document.getElementById('to-third-button').addEventListener('click', function () {
     secondTourInfo.classList.remove('visible');
     setTimeout(() => {
         secondTourInfo.style.display = "none";
@@ -352,7 +352,7 @@ document.getElementById('to-third-button').addEventListener('click', function() 
     }, 300);
 });
 
-document.getElementById('back-to-first-button').addEventListener('click', function() {
+document.getElementById('back-to-first-button').addEventListener('click', function () {
     secondTourInfo.classList.remove('visible');
     setTimeout(() => {
         secondTourInfo.style.display = "none";
@@ -363,7 +363,7 @@ document.getElementById('back-to-first-button').addEventListener('click', functi
     }, 300);
 });
 
-document.getElementById('back-to-second-button').addEventListener('click', function() {
+document.getElementById('back-to-second-button').addEventListener('click', function () {
     thirdTourInfo.classList.remove('visible');
     setTimeout(() => {
         thirdTourInfo.style.display = "none";
