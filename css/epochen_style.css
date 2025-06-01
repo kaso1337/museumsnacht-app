@@ -104,7 +104,7 @@ body {
 .overlay-content {
     color: black;
     position: relative;
-    max-width: 70%;
+    max-width: 60%;
     pointer-events: auto;
     z-index: 1001;
 }
@@ -299,4 +299,12 @@ button.btn_tooltip:before {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/%3E%3C/svg%3E");
     transform: scale(1.1);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.overlay-title {
+    font-size: 60px;
+}
+
+.overlay-description {
+    font-size: 30px;
 }

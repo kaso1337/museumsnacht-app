@@ -133,6 +133,8 @@ function select_category(event) {
     // btn.style.pointerEvents = "none";
     // btn.style.cursor = "pointer";
 
+    document.getElementById('frame').classList.remove('active');
+
     if (category) {
         console.log("Selected category:", category);
         btn_ids.forEach((id) => {
@@ -225,6 +227,7 @@ async function changeImage(srcImage) {
             button.classList.remove("hide_cursor");
             board.classList.remove("hide_cursor");
         });
+        document.getElementById('frame').classList.remove('active');
     }, 13701);
 }
 
