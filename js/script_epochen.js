@@ -131,6 +131,9 @@ function select_category(event) {
     const board = document.getElementById("board");
     board.classList.add("active");
 
+    const infoBtn = document.getElementById("info_btn");
+    infoBtn.classList.add("active");
+
     const btn = document.getElementById(id_btn)
     // btn.style.boxShadow = "none";
     // btn.style.pointerEvents = "none";
@@ -232,6 +235,7 @@ async function changeImage(srcImage) {
             board.classList.remove("hide_cursor");
         });
         document.getElementById('frame').classList.remove('active');
+        document.getElementById("info_btn").classList.remove("active");
     }, 13701);
 }
 
