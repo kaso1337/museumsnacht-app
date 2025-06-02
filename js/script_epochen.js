@@ -132,9 +132,9 @@ function select_category(event) {
     board.classList.add("active");
 
     const btn = document.getElementById(id_btn)
-    btn.style.boxShadow = "none";
-    btn.style.pointerEvents = "none";
-    btn.style.cursor = "pointer";
+    // btn.style.boxShadow = "none";
+    // btn.style.pointerEvents = "none";
+    // btn.style.cursor = "pointer";
 
     document.getElementById('frame').classList.remove('active');
 
@@ -152,6 +152,7 @@ function select_category(event) {
         setOverlayContent(category);
 
         setTimeout(function () {
+            board.classList.remove("active");
             btn_ids.forEach((id) => {
                 const btn = document.getElementById(id);
                 btn.style.boxShadow = "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px";
