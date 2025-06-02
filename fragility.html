@@ -128,14 +128,14 @@
         ids.add(id_btn);
 
         const btn = document.getElementById(id_btn)
-        btn.style.boxShadow = "none";
-        btn.style.pointerEvents = "none";
-        btn.style.cursor = "pointer";
+        
+        // btn.style.boxShadow = "none";
+        // btn.style.pointerEvents = "none";
+        // btn.style.cursor = "pointer";
 
         if (category) {
 
             btn_ids.forEach((id) => {
-                const btn = document.getElementById(id);
                 btn.style.boxShadow = "none";
                 btn.style.pointerEvents = "none";
                 btn.style.cursor = "pointer";
@@ -167,8 +167,11 @@
             b.classList.add("hide_cursor");
         });
         buttons.forEach(button => {
-            button.disabled = true;
-            button.classList.add("hide_cursor")
+            if (button.id !== "home_btn") {
+                button.disabled = true;
+                button.classList.add("hide_cursor");
+            }
+            
         });
 
         setTimeout(function () {
