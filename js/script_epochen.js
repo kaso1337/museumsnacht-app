@@ -206,7 +206,7 @@ async function changeImage(srcImage) {
         b.classList.add("hide_cursor");
     });
     buttons.forEach(button => {
-        if (button.id !== "home_btn" && button.id !== "info_btn") {
+        if (button.id !== "home_btn" && button.id !== "info_btn" && button.id !== "close-overlay") {
             button.disabled = true;
             button.classList.add("hide_cursor")
         }
