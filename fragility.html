@@ -105,6 +105,7 @@
     }
 
     initializeCategories().then(() => {
+        console.log("Categories initialized.")
         btn_ids.forEach((id) => {
             const btn_event = document.getElementById(id);
 
@@ -136,12 +137,12 @@
         if (category) {
 
             btn_ids.forEach((id) => {
+                const btn = document.getElementById(id);
                 btn.style.boxShadow = "none";
                 btn.style.pointerEvents = "none";
                 btn.style.cursor = "pointer";
             });
             changeImage(getImageByCategories(category));
-            console.log("hallllllo");
 
             setTimeout(function () {
                 btn_ids.forEach((id) => {
