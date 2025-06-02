@@ -72,6 +72,17 @@
 
 
     async function initializeCategories() {
+        
+        const buttons = document.querySelectorAll("button");
+        buttons.forEach(button => {
+            if (button.id !== "home_btn") {
+                button.disabled = true;
+                button.classList.add("hide_cursor");
+                button.style.boxShadow = "none";
+                console.log("why not");
+            }
+        });
+        
         for (const foldername of folder_names) {
             const key = foldername[0] + foldername[1];
             const paths = [];
@@ -105,6 +116,14 @@
     }
 
     initializeCategories().then(() => {
+        
+        const buttons = document.querySelectorAll("button");
+        buttons.forEach(button => {
+            button.disabled = false;
+            button.style.boxShadow = "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px";
+            button.style.pointerEvents = "auto";
+        });
+        
         console.log("Categories initialized.")
         btn_ids.forEach((id) => {
             const btn_event = document.getElementById(id);
