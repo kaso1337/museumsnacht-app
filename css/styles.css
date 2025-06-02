@@ -120,35 +120,35 @@ body {
 
 /* Layer clipping paths */
 .layer[data-layer="1"] {
-    clip-path: polygon(100% 55%, 100% 5%, 50% 50%);
+    clip-path: polygon(18% 100%, 40% 100%, 50% 50%);
     pointer-events: auto;
     max-width: 100%;
     max-height: 100%;
 }
 
 .layer[data-layer="2"] {
-    clip-path: polygon(100% 100%, 65% 100%, 50% 50%);
+    clip-path: polygon(65% 0%, 100% 32%, 50% 50%);
     pointer-events: auto;
     max-width: 100%;
     max-height: 100%;
 }
 
 .layer[data-layer="3"] {
-    clip-path: polygon(0% 55%, 0% 5%, 50% 50%);
+    clip-path: polygon(90% 100%, 47% 100%, 50% 50%);
     pointer-events: auto;
     max-width: 100%;
     max-height: 100%;
 }
 
 .layer[data-layer="4"] {
-     clip-path: polygon(0% 100%, 35% 100%, 50% 50%);
+    clip-path: polygon(28% 0%, 0% 0%, 50% 50%);
     pointer-events: auto;
     max-width: 100%;
     max-height: 100%;
 }
 
 .layer[data-layer="5"] {
-    clip-path: polygon(25% 0%, 75% 0%, 50% 50%);
+    clip-path: polygon(28% 0%, 48% 0%, 50% 50%);
     pointer-events: auto;
     max-width: 100%;
     max-height: 100%;
