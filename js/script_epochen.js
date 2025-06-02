@@ -129,9 +129,9 @@ function select_category(event) {
     ids.add(id_btn);
 
     const btn = document.getElementById(id_btn)
-    // btn.style.boxShadow = "none";
-    // btn.style.pointerEvents = "none";
-    // btn.style.cursor = "pointer";
+    btn.style.boxShadow = "none";
+    btn.style.pointerEvents = "none";
+    btn.style.cursor = "pointer";
 
     document.getElementById('frame').classList.remove('active');
 
