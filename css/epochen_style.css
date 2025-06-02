@@ -37,6 +37,12 @@ body {
     position: relative;
 }
 
+#board.active .btn:not(.clicked, #home_btn) {
+    filter: grayscale(100%) brightness(0.7);
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
+}
+
 #frame_img_src {
     max-width: 1400px;
     width: 97%;

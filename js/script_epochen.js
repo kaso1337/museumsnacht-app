@@ -128,6 +128,9 @@ function select_category(event) {
     const category = id_btn[0].toUpperCase() + id_btn[1];
     ids.add(id_btn);
 
+    const board = document.getElementById("board");
+    board.classList.add("active");
+
     const btn = document.getElementById(id_btn)
     btn.style.boxShadow = "none";
     btn.style.pointerEvents = "none";
