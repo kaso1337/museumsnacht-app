@@ -4,6 +4,7 @@ body {
     padding: 0px;
     font-family: "Baton Turbo Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 18px;
+    overflow: hidden;
 }
 
 .hide_cursor {
@@ -22,11 +23,24 @@ body {
     min-height: 400px;
 }
 
+#frame_container {
+    /* flex: 1; */
+    max-width: 1400px;
+    position: relative;
+    width: 97%;
+}
+
 #frame {
     display: flex;
     justify-content: center;
     width: 100%;
     position: relative;
+}
+
+#board.active .btn:not(.clicked, #home_btn) {
+    filter: grayscale(100%) brightness(0.7);
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
 }
 
 #frame_img_src {
@@ -60,6 +74,47 @@ body {
     display: block;
 }
 
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.65);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    z-index: 2;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+}
+
+#frame.active .image-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.image-container img {
+    transition: filter 0.3s ease;
+}
+
+.image-container.active img {
+    filter: blur(5px);
+}
+
+.overlay-content {
+    color: black;
+    position: relative;
+    max-width: 60%;
+    pointer-events: auto;
+    z-index: 1001;
+}
+
 #board {
     max-width: 1400px;
     width: 97%;
@@ -76,7 +131,8 @@ body {
 }
 
 .btn {
-    background-color: #f0f0f0; /* Fallback color */
+    background-color: #f0f0f0;
+    /* Fallback color */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -95,30 +151,37 @@ body {
 
 /* Using inline background colors to indicate which buttons are which */
 #romantik_btn {
-    background-color: #ffe0e0; /* Light red */
+    background-color: #ffe0e0;
+    /* Light red */
 }
 
 #renaissance_btn {
-    background-color: #e0ffe0; /* Light green */
+    background-color: #e0ffe0;
+    /* Light green */
 }
 
 #expressionismus_btn {
-    background-color: #e0e0ff; /* Light blue */
+    background-color: #e0e0ff;
+    /* Light blue */
 }
 
 #impressionismus_btn {
-    background-color: #fffde0; /* Light yellow */
+    background-color: #fffde0;
+    /* Light yellow */
 }
 
 #xieyi_btn {
-    background-color: #ffe0fd; /* Light purple */
+    background-color: #ffe0fd;
+    /* Light purple */
 }
 
 #gongbi_btn {
-    background-color: #e0fffd; /* Light cyan */
+    background-color: #e0fffd;
+    /* Light cyan */
 }
 
-.btn:hover, .btn:active {
+.btn:hover,
+.btn:active {
     transform: scale(1.1, 1.1);
     background-color: #EB4E27;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
@@ -176,21 +239,41 @@ button.btn_tooltip:before {
     margin: 0 auto;
 }
 
-#home_btn {
+.action-buttons {
+    position: absolute;
+    right: 4.5%;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+}
+
+#home_btn,
+#info_btn {
     background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    right: 3%;
-    bottom: 3%;
-    z-index: 10;
     width: 14vw;
     height: 14vw;
     max-width: 140px;
     max-height: 140px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     transition: all 0.4s ease-in-out;
+}
+
+#info_btn {
+    background-image: url("/assets/img/btns/Info.svg");
+    background-size: 50%;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+    pointer-events: none;
+}
+
+#info_btn.active {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 #home_btn:hover,
@@ -203,4 +286,39 @@ button.btn_tooltip:before {
 #home_btn:hover .home-icon,
 #home_btn:active .home-icon {
     color: white;
+}
+
+.close-overlay {
+    position: absolute;
+    top: 40px;
+    /* right: 40px; */
+    width: 60px;
+    height: 60px;
+    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000'%3E%3Cpath d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/%3E%3C/svg%3E") no-repeat center;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.close-overlay:hover {
+    background-color: #EB4E27;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/%3E%3C/svg%3E");
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.overlay-title {
+    font-size: 60px;
+}
+
+.overlay-description {
+    font-size: 30px;
 }
