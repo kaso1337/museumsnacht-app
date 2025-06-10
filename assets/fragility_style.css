@@ -101,42 +101,42 @@ body {
 }
 
 #sand_btn {
-    background-image: url("/assets/img/btns/Sand.svg");
+    background-image: url("img/btns/Sand.svg");
 }
 
 #glas_btn {
-    background-image: url("/assets/img/btns/Glas.svg");
+    background-image: url("img/btns/Glas.svg");
 }
 
 #karten_btn {
-    background-image: url("/assets/img/btns/Spielkarten.svg");
+    background-image: url("img/btns/Spielkarten.svg");
 }
 
 #knete_btn {
-    background-image: url("/assets/img/btns/Knete.svg");
+    background-image: url("img/btns/Knete.svg");
     background-size: 75%;
 }
 
 #papier_btn {
-    background-image: url("/assets/img/btns/Papier.svg");
+    background-image: url("img/btns/Papier.svg");
     background-size: 90%;
 }
 
 #keramik_btn {
-    background-image: url("/assets/img/btns/Porzellan.svg");
+    background-image: url("img/btns/Porzellan.svg");
 }
 
 #schnee_btn {
-    background-image: url("/assets/img/btns/Schnee.svg");
+    background-image: url("img/btns/Schnee.svg");
 }
 
 #info_btn {
-    background-image: url("/assets/img/btns/Info.svg");
+    background-image: url("img/btns/Info.svg");
     background-size: 80%;
 }
 
 #nature_btn {
-    background-image: url("/assets/img/btns/nature.png");
+    background-image: url("img/btns/nature.png");
 }
 
 .btn:active {
