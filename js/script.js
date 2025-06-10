@@ -98,11 +98,11 @@ const layerInfoTexts = {
 
 // Layer-specific titles
 const layerTitles = {
-    '1': "Tour der Anomalien, findest du die KI Kuriositäten ?",
-    '2': "Tour der Anomalien, findest du die KI Kuriositäten ?",
-    '3': "Tour der Anomalien, findest du die KI Kuriositäten ?",
-    '4': "Tour der Anomalien, findest du die KI Kuriositäten ?",
-    '5': "Tour der Anomalien, findest du die KI Kuriositäten ?",
+    '1': "Findet ihr alle KI-Kuriositäten ?",
+    '2': "Findet ihr alle KI-Kuriositäten ?",
+    '3': "Findet ihr alle KI-Kuriositäten ?",
+    '4': "Findet ihr alle KI-Kuriositäten ?",
+    '5': "Findet ihr alle KI-Kuriositäten ?",
 };
 
 // Initialize UI elements
