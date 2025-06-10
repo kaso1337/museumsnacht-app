@@ -69,7 +69,7 @@ window.addEventListener('resize', adjustContainerToBackground);
 // Tour data configuration
 const tours = {
     '1': [
-        { title: "Surrealistische Architektur", description: "Die Proportionen und Wände der ursprünglich gotischen Hallenkirche wirken hier verzerrt und surreal. Wie wohl der Grundriss von dieser bizarren Kirche aussehen würde?", zoom: { scale: 2, x: "0%", y: "0%" } },
+        { title: "Surrealistische Architektur", description: "Die ProporSonen und Wände der ursprünglichen goSschen Hallenkirche wirken hier verzerrt und surreal. Wie wohl der Grundriss von dieses bizarren Baus aussehen würde?", zoom: { scale: 2, x: "0%", y: "0%" } },
         { title: "Rauchender Turm", description: "Was mag wohl im Turm im Hintergrund passieren? Als wir das Bild generierten, wurde der KI gesagt, dass ein Stadtbrand dargestellt werden soll - aber anscheinend hat sie noch nicht ganz verstanden wie Rauch entsteht", zoom: { scale: 2.5, x: "-30%", y: "+15%" } },
         { title: "Mystische Kreatur", description: "Was für ein seltsames Tier hier neben den winzigen Pferden entstanden ist, wissen wir auch nicht... Vielleicht ist es eine ausgestorbene Art oder eine Phantasie-Kreatur die es nur im KI-Mittelalter gibt?", zoom: { scale: 1.8, x: "15%", y: "-25%" } }
     ],
@@ -78,13 +78,31 @@ const tours = {
         { title: "Geisterturm", description: "Hinter der Kreuzkirche schwebt ein gespenstischer Turm einer mysteriösen anderen Kirche... Was für ein gruseliges Ritual geht hier vor sich? Was denkt ihr?", zoom: { scale: 2.2, x: "-2%", y: "+13%" } }
     ],
     '3': [
-        { title: "Seltsames Loch im Gebäude?", description: "Wie ist denn dieses komische Loch im Gebäude entstanden? Es sieht viel zu rund aus um ein Kanoneneinschlag zu sein... Wofür denkt ihr könnte dieses architektonische Merkmal sein?", zoom: { scale: 2.5, x: "-25%", y: "-8%" } },
+        { title: "Seltsames Loch im Gebäude?", description: "Wie ist denn dieses komische Loch im Gebäude entstanden? Es sieht viel zu rund aus, um ein Kanoneneinschlag zu sein … Was denkt Ihr? Worauf könnte dieses architektonische Merkmal hindeuten?", zoom: { scale: 2.5, x: "-25%", y: "-8%" } },
         { title: "Kugelstoßen im Gefecht", description: "Dieser Soldat scheint mitten in der Schlacht Kugelstoßen zu spielen! Noch seltsamer: Ein Kamerad aus der eigenen Truppe scheint ihn von hinten zu bedrohen… was für eine merkwürdige Kampfstrategie!", zoom: { scale: 3, x: "-30%", y: "-20%" } }
     ],
     '5': [
-        { title: "Ein Gewölbe?", description: "Hier sehen wir die Kreuzkirche mit einem Gewölbe auf ihrem Turm. Die KI verarbeitet das Wort Dresden und fügt sofort in komischen Orten Frauenkirche-ähnliche Gewölbe hinzu....", zoom: { scale: 2, x: "0%", y: "18%" } },
+        { title: "Ein Gewölbe?", description: "Hier sehen wir die Kreuzkirche mit einem Gewölbe auf ihrem Turm. Die KI verarbeitet das Wort „Dresden“ und fügt sofort auch in unpassenden Orten der Frauenkirche ähnliche Kuppeln hinzu …", zoom: { scale: 2, x: "0%", y: "18%" } },
         { title: "Gruselige Gestalten...", description: "Was sind diese gruseligen Figuren und was planen sie? Wir wissen es auch nicht...", zoom: { scale: 2.2, x: "-10%", y: "-30%" } }
     ]
+};
+
+// Layer-specific information texts
+const layerInfoTexts = {
+    '1': "Stadtbrand (1491): Am 15. Juni zerstörte ein Stadtbrand große Teile Dresdens, wovon auch die Kreuzkirche betroffen war. Gewölbe und Pfeiler des Langhauses stürzten ein. Andere Teile der Kirche blieben ganz oder teilweise erhalten und wurden beim erneuten Aufbau wiederverwendet.",
+    '2': "Brand der Kirche (1897): Im Jahr 1897 entwickelte sich vom hölzernen Dachstuhl der Kirche ausgehend ein verheerender Brand, bei dem der gesamte Innenraum vollständig ausbrannte. Nur die aus Sandstein gebauten Umfassungsmauern und der Turm hielten stand.",
+    '3': "Siebenjähriger Krieg (1756 bis 1763): Dresden wurde im Verlauf des Siebenjährigen Krieges vom 13. – 30. Juli 1760 von preußischen Truppen belagert, nachdem es im Sommer des Vorjahres von der Reichsarmee besetzt worden war. Die Belagerung blieb aber erfolglos. Im Jahr 1765 stürzte der bisher erhalten gebliebene Querwestturm ein. Die Wiederaufbauarbeiten haben bereits begonnen und erste Grundmauern des geplanten Neubaus wurden errichtet. Nach diesem Ereignis ist auch Bellottos Bild der Ruine entstanden.",
+    '4': "Zweiter Weltkrieg (1939 bis 1945): Vom 13. bis zum 15. Februar erfolgten mehrere Lugangriffe auf Dresden. 22.000 –25.000 Menschen kamen dabei ums Leben. Die Altstadt brannte zu großen Teilen aus, wobei unteranderem die Semperoper, die Frauenkirche und der Zwinger zerstört wurden. Der Wiederaufbau des Innenraumes erfolgte ab Ende 1945 unter der Leitung des Architekten Fritz Steudtner. Sämtliche, vom Feuer angegriffen Stuck- und Sandsteinpartien im Inneren ließ er abschlagen und durch schlichten Rauputz ersetzen. Diese provisorische, eher moderne Ausgestaltung der Kirche ist kontrovers, dennoch wurde sie bis heute in dieser Form erhalten. Das Kreuzigungsbild hängt nun über dem Altar.",
+    '5': "Blitzeinschlag (1669): Im Jahr 1669 schlug ein Blitz in die Kirche ein und setzte den Westturm in Brand. Dieser wurde im Nachhinein originalgetreu rekonstruiert und galt fast 200 Jahre lang als Wahrzeichen der Stadt Dresden."
+};
+
+// Layer-specific titles
+const layerTitles = {
+    '1': "Tour der Anomalien, findest du die KI Kuriositäten ?",
+    '2': "Tour der Anomalien, findest du die KI Kuriositäten ?",
+    '3': "Tour der Anomalien, findest du die KI Kuriositäten ?",
+    '4': "Tour der Anomalien, findest du die KI Kuriositäten ?",
+    '5': "Tour der Anomalien, findest du die KI Kuriositäten ?",
 };
 
 // Initialize UI elements
@@ -146,6 +164,9 @@ layers.forEach(layer => {
 
             overlay.classList.add('active');
 
+            // Update content based on layer ID
+            updateLayerContent(layerId);
+
             // Show appropriate UI elements based on layer ID
             if (layerId === '4') {
                 titleBlock.style.display = "none";
@@ -173,6 +194,21 @@ layers.forEach(layer => {
         }
     });
 });
+
+// Function to update content based on layer
+function updateLayerContent(layerId) {
+    // Update title block
+    const titleElement = titleBlock.querySelector('h2');
+    if (titleElement && layerTitles[layerId]) {
+        titleElement.textContent = layerTitles[layerId];
+    }
+
+    // Update info block
+    const infoElement = infoBlock.querySelector('p');
+    if (infoElement && layerInfoTexts[layerId]) {
+        infoElement.textContent = layerInfoTexts[layerId];
+    }
+}
 
 // Tour button click handler
 tourButton.addEventListener('click', () => {

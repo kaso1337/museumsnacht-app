@@ -30,7 +30,7 @@ const overlayContents = {
     },
     "Expressionismus": {
         title: "Expressionismus",
-        content: "Im frühen 20. Jahrhundert entstanden, legt dieser Stil Wert auf emotionale Ausdruckskraft, verzerrte Form und kräftige Farben. Künstler wie Kirchner oder Munch verzichteten auf realistische Darstellungen zugunsten, einer subjektiven, oft düsteren oder intensiven Bildsprache."
+        content: "Im frühen 20. Jahrhundert entstanden, legt dieser Stil Wert auf emotionale Ausdruckskraft, verzerrte Form und kräftige Farben. Künstler wie Kirchner oder Munch verzichteten auf realistische Darstellungen zugunsten einer subjektiven, oft düsteren oder intensiven Bildsprache."
     },
     "Impressionismus": {
         title: "Impressionismus",
@@ -42,7 +42,7 @@ const overlayContents = {
     },
     "Gongbi": {
         title: "Gongbi",
-        content: "Gongbi ist ein detailreicher, realistischer Kunststil mit Ursprüngen in der chinesischen Han-Dynastie (206 v. Chr. - 220 n. Chr.). Einige wesentliche Merkmale beinhalten den vergleichsweisen freien Einsatz von Farben sowie die präzise Abbildung der Realität ohne interpretativen Spielraum."
+        content: "Gongbi ist ein detailreicher, realistischer Kunststil mit Ursprüngen in der chinesischen Han-Dynastie (206 v. Chr. – 220 n. Chr.). Merkmale dieser Kunst bestehen im vergleichsweise freien Einsatz von Farben sowie der präzisen Abbildung der Realität ohne interpretativen Spielraum.",
     }
 }
 

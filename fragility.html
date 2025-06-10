@@ -24,29 +24,24 @@
             <button data-tooltip="Papier" id="papier_btn" class="btn btn_tooltip"></button>
             <button data-tooltip="Keramik" id="keramik_btn" class="btn btn_tooltip"></button>
             <button data-tooltip="Schnee" id="schnee_btn" class="btn btn_tooltip"></button>
+            <!-- <button data-tooltip="Info" id="info_btn" class="btn btn_tooltip"></button> -->
         </div>
-        <div id="frame-container">
-            <div id="frame">
-                <img id="frame_img_dst" class="center" src="./assets/img/Kreuzkirche.png" />
-                <img id="frame_img_src" class="center" src="./assets/img/Kreuzkirche.png" />
-                <div class="image-overlay">
-                    <button class="close-overlay" id="close-overlay"></button>
-                    <div class="overlay-content">
-                        <h2 class="overlay-title">Fragile Welten</h2>
-                        <p class="overlay-description">Öffne mit Künstlicher Intelligenz ein Portal in die Zukunft Dresdens. Durch das Drücken von Knöpfen kannst du verschiedene Szenarien auswählen und über fragile Materialien die Zukunft der Stadt erkunden.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="action-buttons">
-                <button data-tooltip="Info" id="info_btn" class="btn btn_tooltip"></button>
-                <button data-tooltip="Home" id="home_btn" class="btn btn_tooltip">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="home-icon">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    </svg>
-                </button>
-            </div>
+        <div id="frame">
+            <img id="frame_img_dst" class="center" src="./assets/img/Kreuzkirche.png" />
+            <!-- <span class="tooltip">
+                <h1>Fragile Welten</h1>
+                <p>Öffne mit Künstlicher Intelligenz ein Portal in die Zukunft Dresdens.</p>
+                <p>Durch das Drücken von zwei Knöpfen kannst du verschiedene Szenarien auswählen und über Utopie oder
+                    Dystopie entscheiden.</p>
+            </span> -->
+            <img id="frame_img_src" class="center" src="./assets/img/Kreuzkirche.png" />
+            <button data-tooltip="Home" id="home_btn" class="btn btn_tooltip">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="home-icon">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </button>
         </div>
     </div>
 </body>
@@ -63,25 +58,7 @@
         });
     }
 
-    // Info button event handling
-    const infoBtn = document.getElementById('info_btn');
-    const frame = document.getElementById('frame');
-    
-    if (infoBtn) {
-        infoBtn.addEventListener('click', function () {
-            console.log("Info button clicked");
-            frame.classList.add('active');
-        });
-    } else {
-        console.error("Info button not found!");
-    }
 
-    // Close overlay when clicking close button
-    document.addEventListener('click', (e) => {
-        if (e.target.closest('.close-overlay')) {
-            e.target.closest('#frame').classList.remove('active');
-        }
-    });
 
     // categories: (a)nimals, (e)nergies, (f)lood, (g)lobal warming, (m)obility, (n)ature, (s)pace
     const folder_names = ["Sand", "Glas", "Karten", "Knete", "Papier", "Keramik", "Schnee"];
@@ -92,45 +69,13 @@
 
     // js object with hardcoded path for every img of a category
     let categories = {};
-    let currentCategory = null;
 
-    // Overlay content for each category
-    const overlayContents = {
-        "Sand": {
-            title: "Sand - Erosion und Vergänglichkeit",
-            content: "Sand symbolisiert die natürliche Erosion und den stetigen Wandel der Zeit. In diesem Szenario zeigt sich Dresden als eine Stadt, die den Elementen unterworfen ist - Gebäude werden langsam von Sand umhüllt, Straßen verschwinden unter Dünen. Es ist eine Vision der Vergänglichkeit, die uns daran erinnert, wie fragil unsere gebaute Umwelt wirklich ist."
-        },
-        "Glas": {
-            title: "Glas - Transparenz und Zerbrechlichkeit",
-            content: "Glas steht für Transparenz, aber auch für extreme Zerbrechlichkeit. In dieser Interpretation wird Dresden zu einer durchsichtigen, kristallinen Stadt - schön anzusehen, aber unglaublich anfällig. Ein einziger Riss kann sich durch die gesamte Struktur ziehen und alles zum Einsturz bringen. Es symbolisiert unsere moderne, vernetzte Welt und ihre Verwundbarkeit."
-        },
-        "Karten": {
-            title: "Karten - Planbarkeit und Orientierung",
-            content: "Spielkarten repräsentieren Zufall, Strategie und die Unvorhersagbarkeit des Lebens. Dresden wird hier als ein Spiel dargestellt, bei dem die Karten neu gemischt werden können. Die Stadt verändert sich je nach dem, welche Karte gezogen wird - ein Symbol für die verschiedenen Wege, die unsere Zukunft nehmen könnte."
-        },
-        "Knete": {
-            title: "Knete - Formbarkeit und Plastizität",
-            content: "Knete symbolisiert die Formbarkeit und Anpassungsfähigkeit. Dresden wird hier als eine Stadt gezeigt, die sich ständig neu formt und verändert. Gebäude können wie Knetmasse geformt werden, Straßen biegen sich, und die gesamte Stadtlandschaft ist in einem Zustand permanenter Transformation - ein Bild für urbane Flexibilität und Anpassung."
-        },
-        "Papier": {
-            title: "Papier - Wissen und Vergänglichkeit",
-            content: "Papier steht für Wissen, Kultur und Kommunikation, aber auch für Vergänglichkeit. In dieser Vision wird Dresden zu einer Stadt aus Papier - reich an Geschichte und Kultur, aber anfällig für Feuer, Wasser und Zeit. Es ist eine Metapher für unser kulturelles Erbe und wie wichtig es ist, es zu bewahren und zu schützen."
-        },
-        "Keramik": {
-            title: "Keramik - Tradition und Handwerk",
-            content: "Keramik verbindet Tradition mit Funktionalität. Dresden wird hier als eine Stadt aus Porzellan dargestellt - elegant und kunstfertig, aber auch spröde. Es ehrt die lange Tradition der Dresdner Porzellanmanufaktur und zeigt gleichzeitig, wie Tradition und moderne Entwicklung in einem fragilen Gleichgewicht stehen."
-        },
-        "Schnee": {
-            title: "Schnee - Reinheit und Vergänglichkeit",
-            content: "Schnee symbolisiert Reinheit, Stille und den Kreislauf der Jahreszeiten. Dresden unter einer ewigen Schneeschicht zeigt eine Stadt in Winterschlaf - ruhig, friedlich, aber auch erstarrt. Es ist eine Vision von Reset und Neubeginn, aber auch von der Kälte, die entstehen kann, wenn sich nichts mehr bewegt."
-        }
-    };
 
     async function initializeCategories() {
         
         const buttons = document.querySelectorAll("button");
         buttons.forEach(button => {
-            if (button.id !== "home_btn" && button.id !== "info_btn") {
+            if (button.id !== "home_btn") {
                 button.disabled = true;
                 button.classList.add("hide_cursor");
                 button.style.boxShadow = "none";
@@ -170,23 +115,13 @@
         });
     }
 
-    function setOverlayContent(categoryName) {
-        console.log("Setting overlay content for:", categoryName);
-        if (overlayContents[categoryName]) {
-            frame.querySelector('.overlay-title').textContent = overlayContents[categoryName].title;
-            frame.querySelector('.overlay-description').textContent = overlayContents[categoryName].content;
-        }
-    }
-
     initializeCategories().then(() => {
         
         const buttons = document.querySelectorAll("button");
         buttons.forEach(button => {
-            if (button.id !== "home_btn" && button.id !== "info_btn") {
-                button.disabled = false;
-                button.style.boxShadow = "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px";
-                button.style.pointerEvents = "auto";
-            }
+            button.disabled = false;
+            button.style.boxShadow = "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px";
+            button.style.pointerEvents = "auto";
         });
         
         console.log("Categories initialized.")
@@ -212,28 +147,11 @@
         const category = id_btn[0].toUpperCase() + id_btn[1];
         ids.add(id_btn);
 
-        // Store current category for info button
-        const categoryName = folder_names.find(name => name.startsWith(category));
-        currentCategory = categoryName;
-
         const btn = document.getElementById(id_btn)
-        const board = document.getElementById("board");
         
         btn.style.boxShadow = "none";
         btn.style.pointerEvents = "none";
         btn.style.cursor = "pointer";
-        
-        board.classList.add("active");
-
-        const infoBtn = document.getElementById("info_btn");
-        infoBtn.classList.add("active");
-
-        document.getElementById('frame').classList.remove('active');
-
-        // Set overlay content for the selected category
-        if (categoryName) {
-            setOverlayContent(categoryName);
-        }
 
         if (category) {
 
@@ -246,7 +164,6 @@
             changeImage(getImageByCategories(category));
 
             setTimeout(function () {
-                board.classList.remove("active");
                 btn_ids.forEach((id) => {
                     const btn = document.getElementById(id);
                     btn.style.boxShadow = "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px";
@@ -272,7 +189,7 @@
             b.classList.add("hide_cursor");
         });
         buttons.forEach(button => {
-            if (button.id !== "home_btn" && button.id !== "info_btn" && button.id !== "close-overlay") {
+            if (button.id !== "home_btn") {
                 button.disabled = true;
                 button.classList.add("hide_cursor");
                 button.style.boxShadow = "none";
@@ -294,8 +211,6 @@
                 button.classList.remove("hide_cursor");
                 board.classList.remove("hide_cursor");
             });
-            document.getElementById('frame').classList.remove('active');
-            document.getElementById("info_btn").classList.remove("active");
         }, 13701);
     }
 
