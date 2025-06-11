@@ -180,7 +180,7 @@ body {
     /* Light cyan */
 }
 
-.btn:hover,
+/* .btn:hover,
 .btn:active:not(#info_btn) {
     transform: scale(1.1, 1.1);
     background-color: #EB4E27;
@@ -222,7 +222,7 @@ button.btn_tooltip:before {
     transition: opacity 0.3s ease;
     opacity: 0;
     pointer-events: none;
-}
+} */
 
 @media (hover: hover) and (pointer: fine) {
     button.btn_tooltip:hover::after {
