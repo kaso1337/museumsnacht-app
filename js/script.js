@@ -89,11 +89,11 @@ const tours = {
 
 // Layer-specific information texts
 const layerInfoTexts = {
-    '1': "Stadtbrand (1491): Am 15. Juni zerstörte ein Stadtbrand große Teile Dresdens, wovon auch die Kreuzkirche betroffen war. Gewölbe und Pfeiler des Langhauses stürzten ein. Andere Teile der Kirche blieben ganz oder teilweise erhalten und wurden beim erneuten Aufbau wiederverwendet.",
-    '2': "Brand der Kirche (1897): Im Jahr 1897 entwickelte sich vom hölzernen Dachstuhl der Kirche ausgehend ein verheerender Brand, bei dem der gesamte Innenraum vollständig ausbrannte. Nur die aus Sandstein gebauten Umfassungsmauern und der Turm hielten stand.",
-    '3': "Siebenjähriger Krieg (1756 bis 1763): Dresden wurde im Verlauf des Siebenjährigen Krieges vom 13. – 30. Juli 1760 von preußischen Truppen belagert, nachdem es im Sommer des Vorjahres von der Reichsarmee besetzt worden war. Die Belagerung blieb aber erfolglos. Im Jahr 1765 stürzte der bisher erhalten gebliebene Querwestturm ein. Die Wiederaufbauarbeiten haben bereits begonnen und erste Grundmauern des geplanten Neubaus wurden errichtet. Nach diesem Ereignis ist auch Bellottos Bild der Ruine entstanden.",
-    '4': "Zweiter Weltkrieg (1939 bis 1945): Vom 13. bis zum 15. Februar erfolgten mehrere Lugangriffe auf Dresden. 22.000 –25.000 Menschen kamen dabei ums Leben. Die Altstadt brannte zu großen Teilen aus, wobei unteranderem die Semperoper, die Frauenkirche und der Zwinger zerstört wurden. Der Wiederaufbau des Innenraumes erfolgte ab Ende 1945 unter der Leitung des Architekten Fritz Steudtner. Sämtliche, vom Feuer angegriffen Stuck- und Sandsteinpartien im Inneren ließ er abschlagen und durch schlichten Rauputz ersetzen. Diese provisorische, eher moderne Ausgestaltung der Kirche ist kontrovers, dennoch wurde sie bis heute in dieser Form erhalten. Das Kreuzigungsbild hängt nun über dem Altar.",
-    '5': "Blitzeinschlag (1669): Im Jahr 1669 schlug ein Blitz in die Kirche ein und setzte den Westturm in Brand. Dieser wurde im Nachhinein originalgetreu rekonstruiert und galt fast 200 Jahre lang als Wahrzeichen der Stadt Dresden."
+    '1': "Am 15. Juni zerstörte ein Stadtbrand große Teile Dresdens, wovon auch die Kreuzkirche betroffen war. Gewölbe und Pfeiler des Langhauses stürzten ein. Andere Teile der Kirche blieben ganz oder teilweise erhalten und wurden beim erneuten Aufbau wiederverwendet.",
+    '2': "Im Jahr 1897 entwickelte sich vom hölzernen Dachstuhl der Kirche ausgehend ein verheerender Brand, bei dem der gesamte Innenraum vollständig ausbrannte. Nur die aus Sandstein gebauten Umfassungsmauern und der Turm hielten stand.",
+    '3': "Dresden wurde im Verlauf des Siebenjährigen Krieges vom 13. – 30. Juli 1760 von preußischen Truppen belagert, nachdem es im Sommer des Vorjahres von der Reichsarmee besetzt worden war. Die Belagerung blieb aber erfolglos. Im Jahr 1765 stürzte der bisher erhalten gebliebene Querwestturm ein. Die Wiederaufbauarbeiten haben bereits begonnen und erste Grundmauern des geplanten Neubaus wurden errichtet. Nach diesem Ereignis ist auch Bellottos Bild der Ruine entstanden.",
+    '4': "Vom 13. bis zum 15. Februar erfolgten mehrere Lugangriffe auf Dresden. 22.000 –25.000 Menschen kamen dabei ums Leben. Die Altstadt brannte zu großen Teilen aus, wobei unteranderem die Semperoper, die Frauenkirche und der Zwinger zerstört wurden. Der Wiederaufbau des Innenraumes erfolgte ab Ende 1945 unter der Leitung des Architekten Fritz Steudtner. Sämtliche, vom Feuer angegriffen Stuck- und Sandsteinpartien im Inneren ließ er abschlagen und durch schlichten Rauputz ersetzen. Diese provisorische, eher moderne Ausgestaltung der Kirche ist kontrovers, dennoch wurde sie bis heute in dieser Form erhalten. Das Kreuzigungsbild hängt nun über dem Altar.",
+    '5': "Im Jahr 1669 schlug ein Blitz in die Kirche ein und setzte den Westturm in Brand. Dieser wurde im Nachhinein originalgetreu rekonstruiert und galt fast 200 Jahre lang als Wahrzeichen der Stadt Dresden."
 };
 
 // Layer-specific titles
@@ -195,7 +195,15 @@ layers.forEach(layer => {
     });
 });
 
-// Function to update content based on layer
+const layerHeadings = {
+    '1': "Stadtbrand (1491):",
+    '2': "Brand der Kirche (1897):",
+    '3': "Siebenjähriger Krieg (1756 bis 1763):",
+    '4': "Zweiter Weltkrieg (1939 bis 1945):",
+    '5': "Blitzeinschlag (1669):",
+};
+
+
 function updateLayerContent(layerId) {
     // Update title block
     const titleElement = titleBlock.querySelector('h2');
@@ -205,10 +213,21 @@ function updateLayerContent(layerId) {
 
     // Update info block
     const infoElement = infoBlock.querySelector('p');
+    const headingElement = infoBlock.querySelector('h3') || document.createElement('h3');
+    
+    if (!infoBlock.querySelector('h3')) {
+        infoBlock.insertBefore(headingElement, infoElement);
+    }
+
+    if (headingElement && layerHeadings[layerId]) {
+        headingElement.textContent = layerHeadings[layerId];
+    }
+
     if (infoElement && layerInfoTexts[layerId]) {
         infoElement.textContent = layerInfoTexts[layerId];
     }
 }
+
 
 // Tour button click handler
 tourButton.addEventListener('click', () => {
