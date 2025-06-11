@@ -5,7 +5,7 @@ function createWindow() {
     const win = new BrowserWindow({
         width: 1920,
         height: 1080,
-        // kiosk: true, // Enable kiosk mode
+        kiosk: true, // Enable kiosk mode
         webPreferences: {
             // preload: path.join(__dirname, 'preload.js'), // optional
             // nodeIntegration: true, // only use if needed
