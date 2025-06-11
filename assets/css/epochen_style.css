@@ -264,7 +264,7 @@ button.btn_tooltip:before {
 }
 
 #info_btn {
-    background-image: url("/assets/img/btns/Info.svg");
+    background-image: url("../img/btns/Info.svg");
     background-size: 50%;
     opacity: 0;
     transition: all 0.4s ease-in-out;

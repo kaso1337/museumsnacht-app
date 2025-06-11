@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bellotto neu interpretiert - Fragile Welten</title>
-    <link rel="stylesheet" href="assets/fragility_style.css">
+    <link rel="stylesheet" href="./assets/css/fragility_style.css">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/fav/favicon_skd_16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/fav/favicon_skd_32.png">
     <link rel="icon" type="image/png" sizes="48x48" href="assets/img/fav/favicon_skd_48.png">
@@ -27,14 +27,14 @@
             <!-- <button data-tooltip="Info" id="info_btn" class="btn btn_tooltip"></button> -->
         </div>
         <div id="frame">
-            <img id="frame_img_dst" class="center" src="./assets/img/Kreuzkirche.png" />
+            <img id="frame_img_dst" class="center" src="assets/img/Kreuzkirche.png" />
             <!-- <span class="tooltip">
                 <h1>Fragile Welten</h1>
                 <p>Öffne mit Künstlicher Intelligenz ein Portal in die Zukunft Dresdens.</p>
                 <p>Durch das Drücken von zwei Knöpfen kannst du verschiedene Szenarien auswählen und über Utopie oder
                     Dystopie entscheiden.</p>
             </span> -->
-            <img id="frame_img_src" class="center" src="./assets/img/Kreuzkirche.png" />
+            <img id="frame_img_src" class="center" src="assets/img/Kreuzkirche.png" />
             <button data-tooltip="Home" id="home_btn" class="btn btn_tooltip">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="home-icon">
@@ -79,7 +79,6 @@
                 button.disabled = true;
                 button.classList.add("hide_cursor");
                 button.style.boxShadow = "none";
-                console.log("why not");
             }
         });
         
@@ -89,7 +88,7 @@
 
             let i = 1;
             while (true) {
-                const imgPath = `./assets/img/img-ai/${foldername}/${foldername}${i}.png`;
+                const imgPath = `assets/img/img-ai/${foldername}/${foldername}${i}.png`;
                 const exists = await checkImageExists(imgPath);
 
                 if (exists) {
@@ -219,7 +218,7 @@
         console.log("list length: " + list.length);
         console.log("categories[category][paths]: " + list[categories[category]["current_idx"]]);
         categories[category]["current_idx"] = (categories[category]["current_idx"] + 1) % list.length;
-        return "./assets/img/img-ai/" + list[categories[category]["current_idx"]];
+        return "assets/img/img-ai/" + list[categories[category]["current_idx"]];
     }
 
 </script>
