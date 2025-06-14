@@ -131,12 +131,12 @@ const layerTitles = {
     '5': "Findet ihr alle KI-Kuriositäten?",
 };
 
-// Layer headings
+// Layer headings - HIER SIND DIE ZEILENUMBRÜCHE!
 const layerHeadings = {
     '1': "Stadtbrand (1491):",
     '2': "Brand der Kirche (1897):",
-    '3': "Siebenjähriger Krieg (1756 bis 1763):",
-    '4': "Zweiter Weltkrieg (1939 bis 1945):",
+    '3': "Siebenjähriger Krieg<br>(1756 bis 1763):",
+    '4': "Zweiter Weltkrieg<br>(1939 bis 1945):",
     '5': "Blitzeinschlag (1669):",
 };
 
@@ -242,7 +242,7 @@ function updateLayerContent(layerId) {
     if (titleBlock) {
         const titleElement = titleBlock.querySelector('h2');
         if (titleElement && layerTitles[layerId]) {
-            titleElement.textContent = layerTitles[layerId];
+            titleElement.innerHTML = layerTitles[layerId];
         }
     }
 
@@ -256,8 +256,9 @@ function updateLayerContent(layerId) {
             infoBlock.insertBefore(headingElement, infoElement);
         }
 
+        // HIER WIRD DER ZEILENUMBRUCH GESETZT!
         if (headingElement && layerHeadings[layerId]) {
-            headingElement.textContent = layerHeadings[layerId];
+            headingElement.innerHTML = layerHeadings[layerId];
         }
 
         // Button-Sichtbarkeit basierend auf Layer-ID
@@ -308,7 +309,6 @@ function updateLayerContent(layerId) {
     // Setze die Info-Buttons zurück (nur für sichtbare Buttons)
     resetInfoButtons();
 }
-
 
 // Tour button click handler
 if (tourButton) {
