@@ -22,29 +22,8 @@ body {
     right: 0;
     bottom: 0;
     padding: 20px;
-    /* pointer-events: none; */
     z-index: 1;
 }
-
-/* Home button position and style
-.home-button {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    padding: 8px 16px;
-    background-color: #EB4E27;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    pointer-events: auto;
-    transition: background-color 0.3s ease;
-}
-
-.home-button:hover {
-    background-color: #d93e17;
-} */
 
 .home-icon {
     width: 50%;
@@ -342,10 +321,51 @@ body {
     font-size: 0.9em;
 }
 
+.info-block h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
 .info-block p {
     margin: 0;
     font-size: 14px;
     line-height: 1.4;
+}
+
+/* Info buttons styling */
+.info-buttons {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.info-btn {
+    padding: 6px 10px;
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.info-btn.active {
+    background-color: #EB4E27;
+    color: white;
+    border-color: #EB4E27;
 }
 
 /* Tour info */
@@ -414,6 +434,11 @@ body {
     .info-block {
         right: 5%;
     }
+
+    .info-btn {
+        font-size: 10px;
+        padding: 3px 6px;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -432,5 +457,15 @@ body {
     .tour-info button {
         font-size: 0.9em;
         padding: 6px 12px;
+    }
+
+    .info-buttons {
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .info-btn {
+        font-size: 9px;
+        padding: 2px 4px;
     }
 }
