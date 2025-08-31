@@ -237,13 +237,14 @@ header {
     }
   }
   
-  .svg-overlay {
+.svg-overlay {
     position: absolute;
-    top: 500px;             
-    left: 50%; 
-    transform: translateX(-50%);
     width: 200px;
     height: 200px;
+    top: 500px;  
+    left: 0;
+    right: 0;  
+    margin: 0 auto;                  
     z-index: 5;
     cursor: pointer;
     transition: opacity 0.3s ease;
