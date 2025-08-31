@@ -239,8 +239,9 @@ header {
   
   .svg-overlay {
     position: absolute;
-    top: 450px;
-    right: 340px;
+    top: 500px;             
+    left: 50%; 
+    transform: translateX(-50%);
     width: 200px;
     height: 200px;
     z-index: 5;
